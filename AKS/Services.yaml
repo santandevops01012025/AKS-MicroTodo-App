@@ -1,0 +1,72 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: frontend-service
+
+spec:
+
+  selector:
+    app: frontend
+
+  ports:
+
+  - port: 80
+    targetPort: 80
+
+  type: ClusterIP
+  
+---
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: create-service
+
+spec:
+
+  selector:
+    app: create
+
+  ports:
+
+  - port: 8000
+    targetPort: 8000
+
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: delete-service
+
+spec:
+
+  selector:
+    app: delete
+
+  ports:
+
+  - port: 8000
+    targetPort: 8000
+
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: get-service
+
+spec:
+
+  selector:
+    app: get
+
+  ports:
+
+  - port: 8000
+    targetPort: 8000
+
+  type: ClusterIP

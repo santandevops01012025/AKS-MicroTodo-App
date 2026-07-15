@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: create-deployment
+
+spec:
+
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: create
+
+  template:
+
+    metadata:
+
+      labels:
+        app: create
+
+    spec:
+
+      containers:
+
+      - name: create
+
+        image: santandevops01012025/todo-add:v2
+
+        ports:
+
+        - containerPort: 8000
+        env:
+        - name: CONNECTION_STRING
+          value: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:meharserver123.database.windows.net,1433;Database=mehardb;Uid=Useradmin;Pwd=Password@12345;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
